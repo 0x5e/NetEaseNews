@@ -10,6 +10,9 @@ var Navi = require('./Application/View/Navi');
 
 var {
 	AppRegistry,
+	StatusBarIOS,
 } = React;
+
+StatusBarIOS.setStyle('light-content');
 
 AppRegistry.registerComponent('NetEaseNews', () => Navi);

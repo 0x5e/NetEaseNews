@@ -35,7 +35,7 @@ var TabBar = React.createClass({
 						});
 					}} >
 					<View style={styles.tabContent} >
-						<News title='新闻'/>
+						<News />
 					</View>
 				</TabBarIOS.Item>
 				<TabBarIOS.Item
@@ -110,10 +110,6 @@ var styles = StyleSheet.create({
 		marginTop: 64,
 		marginBottom: 49,
 		backgroundColor: '#f0f0f0',
-	},
-	tabText: {
-		color: 'black',
-		margin: 50,
 	},
 });
 

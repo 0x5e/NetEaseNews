@@ -6,7 +6,6 @@ var {
 	Image,
 	StyleSheet,
 	Text,
-	TouchableHighlight,
 	View,
 } = React;
 
@@ -39,7 +38,6 @@ var NewsCell = React.createClass({
 
 	render: function() {
 		return (
-			<TouchableHighlight onPress={() => this.onPress()} underlayColor='#dbdbdb'>
 				<View style={styles.container}>
 					<Image source={{uri : this.state.model.imgsrc}} style={styles.image} />
 					<View style={{flex: 1, flexDirection: 'column', marginLeft: 8}}>
@@ -48,16 +46,7 @@ var NewsCell = React.createClass({
 						<Text style={styles.reply}>{this.state.model.replyCount + '跟帖'}</Text>
 					</View>
 				</View>
-			</TouchableHighlight>
 		);
-	},
-
-	onPress : function() {
-		// this.props.navigator.push({
-		//     title: "News Detail",
-		//     component: NewsDetail,
-		//     passProps: {news},
-		// });
 	},
 });
 

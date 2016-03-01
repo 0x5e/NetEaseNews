@@ -6,7 +6,6 @@ var {
 	Image,
 	StyleSheet,
 	Text,
-	TouchableHighlight,
 	View,
 } = React;
 
@@ -41,32 +40,23 @@ var PhotoSetCell = React.createClass({
 
 	render: function() {
 		return (
-			<TouchableHighlight onPress={() => this.onPress()} underlayColor='#dbdbdb'>
-				<View style={styles.container}>
-					<Text style={styles.title}>{this.state.model.title}</Text>
-					<Text style={styles.reply}>{this.state.model.replyCount + '跟帖'}</Text>
-					<View style={{flex: 1, flexDirection: 'row', marginTop: 4, marginLeft: -4, marginRight: -4}} >
-						<Image source={{uri : this.state.model.imgsrc}} style={styles.image} />
-						{
-							this.state.model.imgextra.map(function(imgextra) {
-								return (
-									<Image key={imgextra.imgsrc} source={{uri : imgextra.imgsrc}} style={styles.image} />
-								);
-							})
-						}
-					</View>
+			<View style={styles.container}>
+				<Text style={styles.title}>{this.state.model.title}</Text>
+				<Text style={styles.reply}>{this.state.model.replyCount + '跟帖'}</Text>
+				<View style={{flex: 1, flexDirection: 'row', marginTop: 4, marginLeft: -4, marginRight: -4}} >
+					<Image source={{uri : this.state.model.imgsrc}} style={styles.image} />
+					{
+						this.state.model.imgextra.map(function(imgextra) {
+							return (
+								<Image key={imgextra.imgsrc} source={{uri : imgextra.imgsrc}} style={styles.image} />
+							);
+						})
+					}
 				</View>
-			</TouchableHighlight>
+			</View>
 		);
 	},
 
-	onPress : function() {
-		// this.props.navigator.push({
-		//     title: "News Detail",
-		//     component: NewsDetail,
-		//     passProps: {news},
-		// });
-	},
 });
 
 var styles = StyleSheet.create({
