@@ -56,7 +56,7 @@ var styles = StyleSheet.create({
 		flexDirection : 'row',
 		justifyContent: 'center',
 		alignItems: 'center',
-		backgroundColor: 'clear',
+		backgroundColor: 'transparent',
 		margin: 8,
 	},
 	image : {

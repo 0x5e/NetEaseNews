@@ -63,7 +63,7 @@ var styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		flexDirection: 'column',
-		backgroundColor: 'clear',
+		backgroundColor: 'transparent',
 		margin: 8,
 	},
 	title : {

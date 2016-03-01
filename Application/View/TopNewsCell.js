@@ -129,7 +129,7 @@ var styles = StyleSheet.create({
 	},
 	title : {
 		color : 'white',
-		backgroundColor : 'clear',
+		backgroundColor : 'transparent',
 		fontSize : 15,
 		alignSelf: 'flex-end',
 		left: 8,
