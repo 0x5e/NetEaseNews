@@ -1,32 +1,37 @@
 'use strict';
 
-var React = require('react-native');
+import News from './News';
 
-var News = require('./News');
-
-var {
+import React, {
     StyleSheet,
     TabBarIOS,
     View,
-} = React;
+} from 'react-native';
 
-var TabBar = React.createClass({
+const Res = {
+	news: require('./res/tabbar_icon_news_normal.png'),
+	reader: require('./res/tabbar_icon_reader_normal.png'),
+	media: require('./res/tabbar_icon_media_normal.png'),
+	found: require('./res/tabbar_icon_found_normal.png'),
+	me: require('./res/tabbar_icon_me_normal.png'),
+};
 
-	getInitialState: function() {
+const TabBar = React.createClass({
+
+	getInitialState() {
 		return {
 			selectedTab: 'news',
 		};
 	},
 
-	render: function() {
+	render() {
 		return (
 			<TabBarIOS 
 				style={styles.container}
 				tintColor="red"
 				barTintColor="white">
 				<TabBarIOS.Item
-					icon={{uri: 'tabbar_icon_news_normal', scale: 2}}
-					selectedIcon={{uri: 'tabbar_icon_news_highlight', scale: 2}}
+					icon={Res.news}
 					title='新闻'
 					selected={this.state.selectedTab === 'news'}
 					onPress={() => {
@@ -39,8 +44,7 @@ var TabBar = React.createClass({
 					</View>
 				</TabBarIOS.Item>
 				<TabBarIOS.Item
-					icon={{uri: 'tabbar_icon_reader_normal', scale: 2}}
-					selectedIcon={{uri: 'tabbar_icon_reader_highlight', scale: 2}}
+					icon={Res.reader}
 					title='阅读'
 					selected={this.state.selectedTab === 'reader'}
 					onPress={() => {
@@ -52,8 +56,7 @@ var TabBar = React.createClass({
 					</View>
 				</TabBarIOS.Item>
 				<TabBarIOS.Item
-					icon={{uri: 'tabbar_icon_media_normal', scale: 2}}
-					selectedIcon={{uri: 'tabbar_icon_media_highlight', scale: 2}}
+					icon={Res.media}
 					title='试听'
 					selected={this.state.selectedTab === 'media'}
 					onPress={() => {
@@ -65,8 +68,7 @@ var TabBar = React.createClass({
 					</View>
 				</TabBarIOS.Item>
 				<TabBarIOS.Item
-					icon={{uri: 'tabbar_icon_found_normal', scale: 2}}
-					selectedIcon={{uri: 'tabbar_icon_found_highlight', scale: 2}}
+					icon={Res.found}
 					title='发现'
 					selected={this.state.selectedTab === 'found'}
 					onPress={() => {
@@ -78,8 +80,7 @@ var TabBar = React.createClass({
 					</View>
 				</TabBarIOS.Item>
 				<TabBarIOS.Item
-					icon={{uri: 'tabbar_icon_me_normal', scale: 2}}
-					selectedIcon={{uri: 'tabbar_icon_me_highlight', scale: 2}}
+					icon={Res.me}
 					title='我'
 					selected={this.state.selectedTab === 'me'}
 					onPress={() => {
@@ -94,14 +95,14 @@ var TabBar = React.createClass({
 		);
 	},
 
-	onPress: function(selectedTab) {
+	onPress(selectedTab) {
 		this.setState({
 			selectedTab: selectedTab,
 		});
 	}
 });
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 	},

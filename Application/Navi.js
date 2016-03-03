@@ -1,19 +1,17 @@
 'use strict';
 
-var React = require('react-native');
+import TabBar from './TabBar';
 
-var TabBar = require('./TabBar');
-
-var {
+import React, {
 	Navigator,
 	StyleSheet,
 	Text,
 	TouchableOpacity,
-} = React;
+} from 'react-native';
 
-var Nav = {
+const Nav = {
 
-	LeftButton: function(route, navigator, index, navState) {
+	LeftButton(route, navigator, index, navState) {
 		if(route.idx != 'main') {
 			return (
 				<TouchableOpacity onPress={() => navigator.pop()} >
@@ -27,11 +25,11 @@ var Nav = {
 		}
 	},
 
-	RightButton: function(route, navigator, index, navState) {
+	RightButton(route, navigator, index, navState) {
 		return null;
 	},
 
-	Title: function(route, navigator, index, navState) {
+	Title(route, navigator, index, navState) {
 		return (
 			<Text style={[styles.navBarText, styles.navBarTitleText]}>
 				{route.name}
@@ -40,7 +38,7 @@ var Nav = {
 	},
 }
 
-var Navi = React.createClass({
+const Navi = React.createClass({
 
 	statics: {
 		title: '<NavigatorIOS> - Custom',
@@ -67,7 +65,7 @@ var Navi = React.createClass({
 	}
 });
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 	},

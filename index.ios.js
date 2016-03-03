@@ -6,7 +6,7 @@
 
 var React = require('react-native');
 
-var Navi = require('./Application/View/Navi');
+var Navi = require('./Application/Navi');
 
 var {
 	AppRegistry,

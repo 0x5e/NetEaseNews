@@ -1,13 +1,11 @@
 'use strict';
 
-var React = require('react-native');
-
-var {
+import React, {
 	Image,
 	StyleSheet,
 	Text,
 	View,
-} = React;
+} from 'react-native';
 
 /*
 	model: {
@@ -30,15 +28,15 @@ var {
 	}
  */
 
-var PhotoSetCell = React.createClass({
+const PhotoSetCell = React.createClass({
 
-	getInitialState: function() {
+	getInitialState() {
 		return {
 			model : this.props.model,
 		};
 	},
 
-	render: function() {
+	render() {
 		return (
 			<View style={styles.container}>
 				<Text style={styles.title}>{this.state.model.title}</Text>
@@ -59,7 +57,7 @@ var PhotoSetCell = React.createClass({
 
 });
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		flexDirection: 'column',

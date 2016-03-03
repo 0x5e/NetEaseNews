@@ -1,17 +1,15 @@
 'use strict';
 
-var React = require('react-native');
-
-var {
+import React, {
 	Image,
 	ListView,
 	StyleSheet,
 	Text,
 	TouchableHighlight,
 	View,
-} = React;
+} from 'react-native';
 
-var NewsDetail = React.createClass({
+const NewsDetail = React.createClass({
 
 	render() {
 		return (
@@ -20,7 +18,7 @@ var NewsDetail = React.createClass({
 	},
 });
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 	},

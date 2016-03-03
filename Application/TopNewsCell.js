@@ -1,15 +1,13 @@
 'use strict';
 
-var Swiper = require('react-native-swiper')
+import Swiper from 'react-native-swiper';
 
-var React = require('react-native');
-
-var {
+import React, {
 	Image,
 	StyleSheet,
 	Text,
 	View,
-} = React;
+} from 'react-native';
 
 /*
 	model: {
@@ -70,15 +68,15 @@ var {
 	}
  */
 
-var TopNewsCell = React.createClass({
+const TopNewsCell = React.createClass({
 
-	getInitialState: function() {
+	getInitialState() {
 		return {
 			model : this.props.model,
 		};
 	},
 
-	render: function() {
+	render() {
 		return (
 			<Swiper 
 				loop={true}
@@ -103,7 +101,7 @@ var TopNewsCell = React.createClass({
 	},
 });
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
 	pagination: {
 		left: null,
 		right: 8,

@@ -1,27 +1,25 @@
 'use strict';
 
-var RefreshableListView = require('react-native-refreshable-listview')
-var TopNewsCell = require('./TopNewsCell')
-var NewsCell = require('./NewsCell')
-var PhotoSetCell = require('./PhotoSetCell')
-var NewsDetail = require('./NewsDetail')
+import RefreshableListView from 'react-native-refreshable-listview';
+import TopNewsCell from './TopNewsCell';
+import NewsCell from './NewsCell';
+import PhotoSetCell from './PhotoSetCell';
+import NewsDetail from './NewsDetail';
 
-var React = require('react-native');
-
-var {
+import React, {
 	Image,
 	ListView,
 	StyleSheet,
 	Text,
 	TouchableHighlight,
 	View,
-} = React;
+} from 'react-native';
 
 // http://c.m.163.com/nc/article/headline/T1348647853363/0-30.html
 
-var BASE_URL = 'http://c.m.163.com';
+const BASE_URL = 'http://c.m.163.com';
 
-var NEWS_URLS = [
+const NEWS_URLS = [
 	{
 		'title': '头条',
 		'urlString': 'headline/T1348647853363',
@@ -64,25 +62,25 @@ var NEWS_URLS = [
 	},
 ];
 
-var News = React.createClass({
+const News = React.createClass({
 
-	getInitialState: function() {
+	getInitialState() {
 		return {
 			dataSource : new ListView.DataSource({
 				rowHasChanged : (row1, row2) => row1 !== row2
 			}),
-		};
+		}
 	},
 
-	componentDidMount: function() {
+	componentDidMount() {
 		this._fetchData();
 	},
 
-	_getUrl: function() {
+	_getUrl() {
 		return BASE_URL + '/nc/article/' + NEWS_URLS[0].urlString + '/0-20.html';
 	},
 
-	_fetchData: function() {
+	_fetchData() {
 		fetch(this._getUrl())
 			.then((response) => response.json())
 			.then((responseData) => {
@@ -101,7 +99,7 @@ var News = React.createClass({
 			.done();
 	},
 
-	render: function() {
+	render() {
 		if (this.state.dataSource.getRowCount() === 0) {
 			return (
 				<View style={{backgroundColor: '#f0f0f0'}} />
@@ -120,13 +118,13 @@ var News = React.createClass({
 
 	},
 
-	renderSeparator: function(sectionID, rowID) {
+	renderSeparator(sectionID, rowID) {
 		return (
 			<View key={'SEP_' + sectionID + '_' + rowID} style={styles.rowSeparator}/>
 		);
 	},
 
-	renderRow: function(news, sectionID, rowID) {
+	renderRow(news, sectionID, rowID) {
 		var content;
 		if (rowID === '0') {
 			content = <TopNewsCell model={news} />;
@@ -146,7 +144,7 @@ var News = React.createClass({
 		);
 	},
 
-	_pressRow: function(news, sectionID, rowID) {
+	_pressRow(news, sectionID, rowID) {
 
 		if (rowID === '0') {
 
@@ -159,7 +157,7 @@ var News = React.createClass({
 
 });
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
 	listView: {
 		backgroundColor: '#f0f0f0',
 	},

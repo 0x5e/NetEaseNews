@@ -1,16 +1,14 @@
 'use strict';
 
-var React = require('react-native');
+from TabBar import './TabBar'
 
-var TabBar = require('./TabBar');
-
-var {
+from React, {
 	NavigatorIOS,
 	StyleSheet,
 	StatusBarIOS,
-} = React;
+} import 'react-native';
 
-var Navi = React.createClass({
+const Navi = React.createClass({
 
 	statics: {
 		title: '<NavigatorIOS> - Custom',
@@ -54,7 +52,7 @@ var Navi = React.createClass({
 	}
 });
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 	},
