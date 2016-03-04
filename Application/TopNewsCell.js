@@ -1,4 +1,5 @@
-'use strict';
+/* @flow */
+'use strict'
 
 import Swiper from 'react-native-swiper';
 
@@ -85,7 +86,7 @@ const TopNewsCell = React.createClass({
 				dot={<View style={styles.dot} />}
 				activeDot={<View style={styles.activeDot} />} >
 				{
-					this.state.model.ads.map(function(ad) {
+					this.state.model.ads.map((ad) => {
 						return (
 							<Image 
 								key=''

@@ -1,4 +1,5 @@
-'use strict';
+/* @flow */
+'use strict'
 
 import TabBar from './TabBar';
 
@@ -45,7 +46,7 @@ const Navi = React.createClass({
 		description: 'iOS navigation with custom nav bar colors',
 	},
 
-	_navigationbar() {
+	_navigationbar(): Navigator.NavigationBar {
 		return (
 			<Navigator.NavigationBar
 			  routeMapper={Nav}
@@ -53,7 +54,7 @@ const Navi = React.createClass({
 		);
 	},
 
-	render() {
+	render(): Navigator {
 		return (
 			<Navigator
 				initialRoute={{idx: 'main', name: '网易', index: 0}}

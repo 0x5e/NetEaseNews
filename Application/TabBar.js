@@ -1,4 +1,5 @@
-'use strict';
+/* @flow */
+'use strict'
 
 import News from './News';
 
@@ -95,11 +96,6 @@ const TabBar = React.createClass({
 		);
 	},
 
-	onPress(selectedTab) {
-		this.setState({
-			selectedTab: selectedTab,
-		});
-	}
 });
 
 const styles = StyleSheet.create({

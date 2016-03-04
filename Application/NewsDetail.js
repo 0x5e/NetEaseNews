@@ -1,4 +1,5 @@
-'use strict';
+/* @flow */
+'use strict'
 
 import React, {
 	Image,

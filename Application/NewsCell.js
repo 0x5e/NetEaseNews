@@ -1,4 +1,5 @@
-'use strict';
+/* @flow */
+'use strict'
 
 import React, {
 	Image,
@@ -63,6 +64,7 @@ const styles = StyleSheet.create({
 	},
 	title : {
 		color : 'black',
+		height: 20,
 		fontSize : 17,
 	},
 	summary : {

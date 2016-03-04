@@ -1,4 +1,5 @@
-'use strict';
+/* @flow */
+'use strict'
 
 import RefreshableListView from 'react-native-refreshable-listview';
 import TopNewsCell from './TopNewsCell';
@@ -76,7 +77,7 @@ const News = React.createClass({
 		this._fetchData();
 	},
 
-	_getUrl() {
+	_getUrl(): string {
 		return BASE_URL + '/nc/article/' + NEWS_URLS[0].urlString + '/0-20.html';
 	},
 
@@ -103,14 +104,14 @@ const News = React.createClass({
 		if (this.state.dataSource.getRowCount() === 0) {
 			return (
 				<View style={{backgroundColor: '#f0f0f0'}} />
-			);
+			); 
 		}
 
 		return (
 			<RefreshableListView
 				dataSource={this.state.dataSource}
-				renderRow={this.renderRow}
-				renderSeparator={this.renderSeparator}
+				renderRow={this._renderRow}
+				renderSeparator={(sectionID, rowID) => <View key={`${sectionID}-${rowID}`} style={styles.rowSeparator} />}
 				loadData={this._fetchData}
 		        refreshDescription='下拉刷新'
 				style={styles.listView} />
@@ -118,25 +119,19 @@ const News = React.createClass({
 
 	},
 
-	renderSeparator(sectionID, rowID) {
-		return (
-			<View key={'SEP_' + sectionID + '_' + rowID} style={styles.rowSeparator}/>
-		);
-	},
-
-	renderRow(news, sectionID, rowID) {
+	_renderRow(rowData: Object, sectionID: string, rowID: string) {
 		var content;
 		if (rowID === '0') {
-			content = <TopNewsCell model={news} />;
+			content = <TopNewsCell model={rowData} />;
 			return content;
-		} else if (news.skipType === 'photoset') {
-			content = <PhotoSetCell model={news} />;
+		} else if (rowData.skipType === 'photoset') {
+			content = <PhotoSetCell model={rowData} />;
 		} else {
-			content = <NewsCell model={news} />;
+			content = <NewsCell model={rowData} />;
 		}
 
 		return (
-			<TouchableHighlight onPress={() => this._pressRow(news, sectionID, rowID)} underlayColor='#dbdbdb'>
+			<TouchableHighlight onPress={() => this._pressRow(rowData, sectionID, rowID)} underlayColor='#dbdbdb'>
 				<View>
 					{content}
 				</View>
@@ -144,11 +139,11 @@ const News = React.createClass({
 		);
 	},
 
-	_pressRow(news, sectionID, rowID) {
+	_pressRow(rowData: Object, sectionID: string, rowID: string) {
 
 		if (rowID === '0') {
 
-		} else if (news.skipType === 'photoset') {
+		} else if (rowData.skipType === 'photoset') {
 
 		} else {
 			

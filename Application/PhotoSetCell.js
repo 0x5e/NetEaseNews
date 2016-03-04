@@ -1,4 +1,5 @@
-'use strict';
+/* @flow */
+'use strict'
 
 import React, {
 	Image,
@@ -44,7 +45,7 @@ const PhotoSetCell = React.createClass({
 				<View style={{flex: 1, flexDirection: 'row', marginTop: 4, marginLeft: -4, marginRight: -4}} >
 					<Image source={{uri : this.state.model.imgsrc}} style={styles.image} />
 					{
-						this.state.model.imgextra.map(function(imgextra) {
+						this.state.model.imgextra.map((imgextra) => {
 							return (
 								<Image key={imgextra.imgsrc} source={{uri : imgextra.imgsrc}} style={styles.image} />
 							);
