@@ -81,7 +81,7 @@ const TopNewsCell = React.createClass({
 		return (
 			<Swiper 
 				loop={true}
-				height={200}
+				height={180}
 				paginationStyle={styles.pagination} 
 				dot={<View style={styles.dot} />}
 				activeDot={<View style={styles.activeDot} />} >

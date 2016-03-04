@@ -38,11 +38,16 @@ const PhotoSetCell = React.createClass({
 	},
 
 	render() {
+		var tagView;
+		if (this.state.model.replyCount > 0) {
+			tagView = <Text style={styles.reply}>{this.state.model.replyCount + '跟帖'}</Text>
+		}
+
 		return (
 			<View style={styles.container}>
 				<Text style={styles.title}>{this.state.model.title}</Text>
-				<Text style={styles.reply}>{this.state.model.replyCount + '跟帖'}</Text>
-				<View style={{flex: 1, flexDirection: 'row', marginTop: 4, marginLeft: -4, marginRight: -4}} >
+				{tagView}
+				<View style={styles.imagelist} >
 					<Image source={{uri : this.state.model.imgsrc}} style={styles.image} />
 					{
 						this.state.model.imgextra.map((imgextra) => {
@@ -82,13 +87,18 @@ const styles = StyleSheet.create({
 		textAlign: 'center',
 		
 		alignSelf: 'flex-end',
-		marginTop: -8,
+		marginTop: -18,
 
 		borderColor: '#dbdbdb',
 		borderWidth: 1,
 		borderRadius: 8,
 		paddingLeft: 4,
 		paddingRight: 4,
+	},
+	imagelist: {
+		flex: 1, 
+		flexDirection: 'row',
+		justifyContent: 'space-between',
 	},
 	image: {
 		flex: 1,

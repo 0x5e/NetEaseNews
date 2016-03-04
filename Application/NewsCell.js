@@ -36,13 +36,18 @@ const NewsCell = React.createClass({
 	},
 
 	render() {
+		var tagView;
+		if (this.state.model.replyCount > 0) {
+			tagView = <Text style={styles.reply}>{this.state.model.replyCount + '跟帖'}</Text>
+		}
+
 		return (
 				<View style={styles.container}>
 					<Image source={{uri : this.state.model.imgsrc}} style={styles.image} />
 					<View style={{flex: 1, flexDirection: 'column', marginLeft: 8}}>
 						<Text style={styles.title}>{this.state.model.title}</Text>
 						<Text style={styles.summary}>{this.state.model.digest}</Text>
-						<Text style={styles.reply}>{this.state.model.replyCount + '跟帖'}</Text>
+						{tagView}
 					</View>
 				</View>
 		);
@@ -51,8 +56,9 @@ const NewsCell = React.createClass({
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1,
+		// flex: 1,
 		flexDirection : 'row',
+		// height: 90,
 		justifyContent: 'center',
 		alignItems: 'center',
 		backgroundColor: 'transparent',
@@ -60,7 +66,7 @@ const styles = StyleSheet.create({
 	},
 	image : {
 		width: 90,
-		height: 68,
+		height: 70,
 	},
 	title : {
 		color : 'black',

@@ -103,7 +103,7 @@ const News = React.createClass({
 	render() {
 		if (this.state.dataSource.getRowCount() === 0) {
 			return (
-				<View style={{backgroundColor: '#f0f0f0'}} />
+				<View style={styles.listView} />
 			); 
 		}
 
